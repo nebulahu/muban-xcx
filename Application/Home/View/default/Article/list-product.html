@@ -1,0 +1,57 @@
+<include file="Public/header"/>
+	<div class="about_us">
+		<div class="inner-title-style">
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<div class="clr">
+				<div class="innteit_top clr">
+					<i class="icon_ins"></i>
+					<div class="innte">卫宠用品</div>
+				</div>
+
+				<div class="innnav_right">
+					当前位置：<a href="/">首页</a> | 卫宠用品
+				</div>
+			</div>
+			<div class="line_text clr">
+				<div class="innline"></div>
+				<div class="inntext">Articles</div>
+				<div class="innline"></div>
+				<div class="innline2"></div>
+			</div>
+		</div>
+
+		<div class="main_title">
+        	<think:cate pid="56">
+            <eq name="cate['id']" value="$cid">
+			<a href="{:U('Article/lists?category='.$cate['id'])}" class="link active">{$cate.title}</a>
+            <else />
+            <a href="{:U('Article/lists?category='.$cate['id'])}" class="link">{$cate.title}</a>
+            </eq>
+            </think:cate>
+		</div>
+        
+		<div class="pet_articles_list clr">
+        	<article:list name="vo" category="$cid" row="$category['list_row']">
+			<a href="{:U('Article/detail','id='.$vo['id'])}" class="link_list" target="_blank">
+				<div class="pic_box">
+					<img src="{$vo.cover_id|get_cover='path'}" alt="" class="pic" />
+				</div>
+				<div class="text_box">
+					<div class="text">{$vo.title}</div>
+					<div class="word">{$vo.engname}</div>
+				</div>
+			</a>
+            </article:list>
+			
+		</div>
+
+		<div class="own_flip">
+        	<article:page cate="$cid" listrow="$category['list_row']"/>
+			</article:page>
+		</div>
+	</div>
+<include file="Public/footer"/>
+<script>
+weichong.moduleAll(4);
+</script>
+</html>

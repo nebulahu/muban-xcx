@@ -1,0 +1,115 @@
+<include file="Public/header"/>
+	<div class="about_us">
+		<div class="inner-title-style">
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<div class="clr">
+				<div class="innteit_top clr">
+					<i class="icon_ins"></i>
+					<div class="innte">医疗范围</div>
+				</div>
+
+				<div class="innnav_right">
+					当前位置：<a href="\">首页</a> | 医疗团队
+				</div>
+			</div>
+			<div class="line_text clr">
+				<div class="innline"></div>
+				<div class="inntext">Medical coverage</div>
+				<div class="innline"></div>
+				<div class="innline2"  style="width:1010px;"></div>
+			</div>
+		</div>
+
+		<ul class="welfare_page clr">
+        	<article:list name="vo" category="$cid">
+			<li class="">
+				<div class="clr con">
+					<div class="pic_box" style="background: url({$vo.cover_id|get_cover='path'}) no-repeat center;">
+						<div class="mask"></div>
+						<div class="text">{$vo.title}</div>
+						<div class="line"></div>
+					</div>
+					<div class="text_box">
+						{$vo.description}
+					</div>
+				</div>
+			</li>
+            </article:list>
+			
+		</ul>
+		
+		<div class="welfare_page2">
+			<div class="inner-title-style">
+				<img src="__IMG__/bage1.png" alt="" class="bage" />
+				<div class="clr">
+					<div class="innteit_top clr">
+						<i class="icon_ins"></i>
+						<div class="innte">成功案例</div>
+					</div>
+
+					
+				</div>
+				<div class="line_text clr">
+					<div class="innline"></div>
+					<div class="inntext">Successful case</div>
+					<div class="innline"></div>
+					<div class="innline2"></div>
+				</div>
+			</div>
+			<div class="about_hospital1 clr">
+            	<article:list name="vo" category="60" row="4">
+				<a href="{:U('Article/detail','id='.$vo['id'])}" target="_blank" class="link">
+					<img src="{$vo.cover_id|get_cover='path'}" alt="" class="pics">
+					<div class="te1 a_hidden">{$vo.title}</div>
+					<div class="te2 a_hidden">{$vo.engname}</div>
+				</a>
+                </article:list>
+				
+				<a href="{:U('Article/lists?category=60')}" class="index-linkmore-style clr">
+					<div class="inner_left">
+						<div class="inn_te1">查看更多</div>
+						<div class="inn_te2">view more</div>
+					</div>
+					<div class="inner_line"></div>
+					<div class="icon_arr2"></div>
+					<div class="icon_arr"></div>
+				</a>
+			</div>
+
+		</div>
+	</div>	
+<include file="Public/footer"/>
+<script>
+
+$(function(){
+	weichong.moduleAll(2);
+	
+	var mainBox = $(".welfare_page").width();
+	var showBox = 778;
+	var liLen = $(".welfare_page li").length-1;
+	var liWid = (mainBox - showBox) / liLen;
+	
+	
+	
+	console.log(showBox)
+	
+	
+	$(".welfare_page li").eq(0).addClass("show_this").siblings("li").css({"width":liWid})
+	
+	
+	$(".welfare_page li").click(function(){
+		
+		$(this).addClass('show_this').siblings().removeClass('show_this');
+		
+		//$(this).addClass("show_this").siblings("li").css({"width":liWid}).removeClass('show_this');
+		$(".welfare_page").find("li").each(function(){
+			if($(this).hasClass("show_this")){
+				$(this).css({"width":showBox})
+			}else{
+				$(this).css({"width":liWid})
+			}
+		})
+	})
+})
+</script>
+</html>

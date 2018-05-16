@@ -1,0 +1,67 @@
+<include file="Public/header"/>
+	<div class="pageindex_list1" style="min-height:430px;">
+		<div class="main" style="padding-top:50px;">
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<think:article id="109">
+			<div class="cen_box clr">
+				<a href="javascript:void(0);" class="left_link">
+					<img src="{$article['cover_id']|get_cover='path'}" alt="" class="pic" />
+				</a>
+				<div class="right_box" style="padding-top:5px;">
+					<div class="hospital_title">
+						卫宠简介\<span>brief introduction</span>
+					</div>
+					<div class="text" style="padding-top:30px; max-height:190px;">
+						{$article['content']}
+                        </div>
+					
+					<!--<a href="javascript:void(0);" class="index-linkmore-style clr" target="_blank" style="bottom:-25px;">
+						<div class="inner_left">
+							<div class="inn_te1">查看更多</div>
+							<div class="inn_te2">view more</div>
+						</div>
+						<div class="inner_line"></div>
+						<div class="icon_arr2"></div>
+						<div class="icon_arr"></div>
+					</a>-->
+				</div>
+			</div>
+            </think:article>
+		</div>
+	</div>
+
+	<div class="about_hospital">
+		<div class="main">
+			<div class="hospital_title">
+				卫宠特色\<span>Characteristic</span>
+			</div>
+			<ul class="spe_list clr">
+            	<article:list name="vo" category="53" row="6">
+				<li>
+					<div class="muns">{$i}</div>
+					<div class="muns_mask"></div>
+					<div class="title a_hidden">{$vo.title}</div>
+					<div class="text">{$vo.description}</div>
+				</li>
+                </article:list>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="about_hospital1 clr">
+		<img src="__IMG__/bage2.png" alt="" class="bage" />
+        <article:list name="vo" category="61">
+		<a href="javascript:void(0);" class="link">
+			<img src="{$vo.cover_id|get_cover='path'}" alt="" class="pics" />
+			<div class="te1 a_hidden">{$vo.title}</div>
+			<div class="te2 a_hidden">{$vo.engname}</div>
+		</a>
+        </article:list>
+		
+	</div>
+<include file="Public/footer"/>
+<script>
+weichong.moduleAll(1);
+</script>
+</html>

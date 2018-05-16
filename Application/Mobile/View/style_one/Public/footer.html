@@ -1,0 +1,33 @@
+<!--
+@name: 底部模块
+@description: 整站 - 底部模块
+@author: ym
+-->
+<div class="fillbot"></div>
+<footer class="module_footer">
+    	<a href="{:U('index/index')}"><i class="icon icon1"></i><span>首页</span></a>
+    	<a href="tel:{:C('CONTACT_PHONE')}"><i class="icon icon2"></i><span>电话</span></a>
+    	<a href="{:U('Article/map')}"><i class="icon icon3"></i><span>地址</span></a>
+    	<a href="{:U('Article/lists?category=59')}"><i class="icon icon4"></i><span>留言</span></a>
+</footer>
+  <ul class="layout">
+    <li class="home"><a href="{:U('index/index')}">首页</a></li>
+    <li class="story"><a href="{:U('Article/lists?category=54')}">卫宠服务</a></li>
+    <li class="pro"><a href="{:U('Article/lists?category=62')}">卫宠用品</a></li>
+    <li class="new"><a href="{:U('Article/lists?category=58')}">医疗团队</a></li>
+    <li class="new"><a href="{:U('Article/lists?category=53')}">关于我们</a></li>
+    <li class="new"><a href="{:U('Article/lists?category=59')}">在线留言</a></li>
+  </ul>
+  <div class="mask"></div>
+<script>
+	$(function(){
+  mTouch('.listbtn').on('tap', function (e) {
+      $(".layout").animate({left:"0"});
+      $(".mask").animate({left:"0"}); 
+  });
+  mTouch('.mask').on('tap', function (e) {
+      $(this).animate({left:"100%"});
+      $(".layout").animate({left:"-100%"});
+  })
+});
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php
+$the_host = $_SERVER['HTTP_HOST'];
+$request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+
+if($the_host == 'wczlpet.com')
+{
+header('HTTP/1.1 301 Moved Permanently');
+header('Location: http://www.wczlpet.com/');
+}
+
+?>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}-{:C('COMPANY_NAME')}</title>
+<meta content="{$keywords}" name="keywords" />
+<meta content="{$description}" name="description" />
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="bookmark" href="/favicon.ico">
+<script type="text/javascript" src="__WEBMONKEY__/js/jquery/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="__WEBMONKEY__/js/jquery/focus/jquery.slides.js"></script>
+<link rel="stylesheet" href="__CSS__/dist/weichong.pc.min.css">
+</head>
+<body>
+	<div class="module_header">
+		<div class="main clr">
+			<a href="/" class="link_logo">
+				<img src="__IMG__/logo.png" alt="南昌卫宠宠物诊疗中心" class="pic_logo" />
+			</a>
+			<div class="right_nav" id="moduleNav">
+				<a href="\" class="link">
+					<div class="text">首页</div>
+					<div class="word">HOME</div>
+					<div class="mask"></div>
+				</a>
+				<a href="{:U('Article/lists?category=53')}" class="link">
+					<div class="text">关于卫宠</div>
+					<div class="word">ABOUT US</div>
+					<div class="mask"></div>
+				</a>
+				<a href="{:U('Article/lists?category=54')}" class="link">
+					<div class="text">卫宠医疗</div>
+					<div class="word">Medical</div>
+					<div class="mask"></div>
+				</a>
+				<a href="{:U('Article/lists?category=55')}" class="link">
+					<div class="text">卫宠美容</div>
+					<div class="word">Beauty</div>
+					<div class="mask"></div>
+				</a>
+				<a href="{:U('Article/lists?category=62')}" class="link">
+					<div class="text">卫宠用品</div>
+					<div class="word">product</div>
+					<div class="mask"></div>
+				</a>
+				<a href="{:U('Article/lists?category=57')}" class="link">
+					<div class="text">卫宠公益</div>
+					<div class="word">public</div>
+					<div class="mask"></div>
+				</a>
+				<a href="{:U('Article/lists?category=58')}" class="link">
+					<div class="text">医疗团队</div>
+					<div class="word">TEAM</div>
+					<div class="mask"></div>
+				</a>
+				<a href="{:U('Article/lists?category=59')}" class="link">
+					<div class="text">联系我们</div>
+					<div class="word">call us</div>
+					<div class="mask"></div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	{:W('Category/banner',array('banner'))}

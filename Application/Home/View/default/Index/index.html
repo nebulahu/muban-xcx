@@ -1,0 +1,185 @@
+
+
+<include file="Public/header"/>
+
+<div class="index_scrnews">
+    <div class="main clr">
+        <div class="left_text">最新资讯：</div>
+        <div class="txtScroll-top">
+            <div class="bd">
+                <ul class="infoList">
+                	<article:list name="vo" category="55" row="10">
+                    <li><a href="{:U('Article/detail?id='.$vo['id'])}" target="_blank" class="a_hidden">{$vo.title}</a><span class="date">{$vo.create_time|date='Y-m-d',###}</span></li>
+                    </article:list>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</div>
+	<div class="pageindex_list1">
+		<div class="main">
+			<img src="__IMG__/titlepic1.png" alt="" class="page-title-style" />
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<think:article id="109">
+			<div class="cen_box clr">
+				<a href="javascript:void(0);" class="left_link">
+					<img src="{$article['cover_id']|get_cover='path'}" alt="" class="pic" />
+				</a>
+				<div class="right_box">
+					<div class="text">
+						{$article['content']}
+					</div>
+					
+					<a href="{:U('Article/lists?category=53')}" class="index-linkmore-style clr"  target="_blank">
+						<div class="inner_left">
+							<div class="inn_te1">查看更多</div>
+							<div class="inn_te2">view more</div>
+						</div>
+						<div class="inner_line"></div>
+						<div class="icon_arr2"></div>
+						<div class="icon_arr"></div>
+					</a>
+				</div>
+			</div>
+            </think:article>
+		</div>
+	</div>
+
+	<div class="pageindex_list2">
+		<img src="__IMG__/titlepic2.png" alt="" class="page-title-style">
+		<div class="main">
+		<img src="__IMG__/bage2.png" alt="" class="bage_pic" />
+			<div class="picScroll-left">
+				<div class="bd">
+					<ul class="picList">
+                    	<article:list name="vo" category="53" row="6">
+						<li style="background:url({$vo.cover_id|get_cover='path'}) no-repeat top center;">
+							<a href="{:U('Article/lists?category=53')}" target="_blank" class="link_box"  target="_blank">
+								<div class="top_box">
+									<div class="text a_hidden"><span>南昌卫宠</span>宠物诊疗中心</div>
+									<div class="word a_hidden">NanChang WeiChong Pet clinic</div>
+								</div>
+								<div class="bottom_box">
+									<div class="tit a_hidden">{$vo.title}</div>
+									<div class="wirt">{$vo.description|msubstr=0,80}</div>
+								</div>
+							</a>
+						</li>
+                        </article:list>
+						
+					</ul>
+				</div>
+				<div class="hd">
+					<a class="next"></a>
+					<ul></ul>
+					<a class="prev"></a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="pageindex_list3">
+		<img src="__IMG__/titlepic3.png" alt="" class="page-title-style">
+		<div class="main clr">
+        	<article:list name="vo" category="54" row="4">
+			<a href="{:U('Article/lists?category=54')}" class="link"  target="_blank">
+				<div class="con">
+					<div class="title clr">
+						<i class="icon_l"></i>
+						<div class="text_t">{$vo.title}</div>
+						<div class="word_r">{$vo.engname}</div>
+					</div>
+					<div class="line"></div>
+					<div class="text">
+						{$vo.description|msubstr=0,100}
+					</div>
+				</div>
+			</a>
+            </article:list>
+			
+		</div>
+	</div>
+
+	<div class="pageindex_list4">
+		<img src="__IMG__/titlepic4.png" alt="" class="page-title-style">
+		<div class="main">
+			<a href="{:U('Article/lists?category=58')}" class="index-linkmore-style clr" target="_blank">
+				<div class="inner_left">
+					<div class="inn_te1">查看更多</div>
+					<div class="inn_te2">view more</div>
+				</div>
+				<div class="inner_line"></div>
+				<div class="icon_arr2"></div>
+				<div class="icon_arr"></div>
+			</a>
+			<div id="slideBox2" class="slideBox2">
+				<div class="bd">
+					<ul>
+                    	<article:position name="vo" cate="58" pos="4">
+						<li>
+							<a href="{:U('Article/detail','id='.$vo['id'])}" target="_blank" class="lift_link">
+								<img src="{$vo.cover_id|get_cover='path'}" alt="{$vo.title}" class="pic" />
+							</a>
+							<div class="right_text">
+								<a href="{:U('Article/detail','id='.$vo['id'])}" target="_blank" class="name">{$vo.title}</a>
+                                <?php $info = D('Document')->detail($vo['id']);?>
+								<div class="job">{$info['job']}</div>
+								<div class="info_text">{$info['content']|msubstr=0,60}</div>
+								<div class="info_wrod">{$vo.description}</div>
+							</div>
+						</li>
+                        </article:position>
+						
+					</ul>
+				</div>
+
+				<!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+				<a class="prev" href="javascript:void(0)"></a>
+				<a class="next" href="javascript:void(0)"></a>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="pageindex_list5 clr">
+		<img src="__IMG__/titlepic5.png" alt="" class="page-title-style">
+		<div class="pet_articles_list clr">
+        	<article:list name="vo" category="56" child="true" row="4">
+			<a href="{:U('Article/detail','id='.$vo['id'])}" class="link_list" target="_blank">
+				<div class="pic_box">
+					<img src="{$vo.cover_id|get_cover='path'}" alt="{$vo.title}" class="pic" />
+				</div>
+				<div class="text_box">
+					<div class="text">{$vo.title}</div>
+					<div class="word">{$vo.engname}</div>
+				</div>
+			</a>
+            </article:list>
+			
+		</div>
+
+		<a href="{:U('Article/lists?category=62')}" class="index-linkmore-style clr" target="_blank">
+			<div class="inner_left">
+				<div class="inn_te1">查看更多</div>
+				<div class="inn_te2">view more</div>
+			</div>
+			<div class="inner_line"></div>
+			<div class="icon_arr2"></div>
+			<div class="icon_arr"></div>
+		</a>
+	</div>
+<include file="Public/footer"/>
+<script>
+weichong.moduleAll(0);
+$(".slideBox2").slide({mainCell:".bd ul"});
+/*特色轮播*/
+$(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:4,delayTime:700,mouseOverStop:true});
+/*新闻滚动*/
+		$(".txtScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,easing:"easeInQuint",delayTime:700});
+
+</script>
+</html>

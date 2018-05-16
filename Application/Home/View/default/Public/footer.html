@@ -1,0 +1,34 @@
+	
+	<div class="module_footer">
+		<div class="main clr">
+			<div class="left_box">
+				<div class="title_text"><span>南昌卫宠</span>宠物诊所</div>
+				<div class="title_word">NanChang WeiChong Pet clinic</div>
+				<div class="con_box clr">
+                	<?php $wei = C('COMPANY_IMGCODE');?>
+					<img src="{$wei|get_cover='path'}" alt="" class="code" />
+					<div class="text_info">
+						<div class="lis clr">
+							<div class="le">地址：</div>
+							<div class="ri">{:C('COMPANY_ADDRESS')}</div>
+						</div>
+						<div class="lis clr">
+							<div class="le">电话：</div>
+							<div class="ri">{:C('CONTACT_PHONE')}	</div>
+						</div>
+                        <div class="lis clr">
+							<div class="le">友情链接：<volist name="link" id="vo">
+							<a class="link" href="{$vo.link}" target="_blank">{$vo.title}	</a>
+                            </volist></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{:W('Category/comment')}
+		</div>
+		<div class="last_text">2011-2017 Copyright © 第一枪 版权所有{:C('WEB_SITE_ICP')}</div>
+	</div>
+</body>
+<script src="__WEBMONKEY__/js/layer/layer/layer.js"></script>
+<script src="__WEBMONKEY__/js/jquery/vaildform/vaildform.js"></script>
+<script src="__JS__/dist/weichong.pc.min.js"></script>

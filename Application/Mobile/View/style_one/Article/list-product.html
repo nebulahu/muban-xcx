@@ -1,0 +1,88 @@
+<include file="Public/header"/>
+<div class="module_inpagetit mrt30">
+    <span class="eng">PORDUCT CLASSIFY</span>
+    <div class="name">产品<span></span>列表</div>
+    <i class="line"></i>
+</div>
+<div class="pro-classfiy">
+    <think:cate pid="56">
+            <eq name="cate['id']" value="$cid">
+			<a href="{:U('Article/lists?category='.$cate['id'])}" class="link active">{$cate.title}</a>
+            <else />
+            <a href="{:U('Article/lists?category='.$cate['id'])}" class="link">{$cate.title}</a>
+            </eq>
+     </think:cate>
+</div>
+<ul class="pro-list clr">
+    <div class="tips">您现在所在的位置：<a href="{:U('index/index')}">首页</a>><span>产品列表</span></div>
+    <article:list name="vo" category="$cid" row="$category['list_row']">
+    <li>
+        <a href="{:U('Article/detail','id='.$vo['id'])}">
+            <div class="img">
+                <img src="{$vo.cover_id|get_cover='path'}" alt="">
+            </div>
+            <div class="info"><span class="name">{$vo.title}</span><span class="intro">{$vo.engname}</span></div>
+        </a>
+    </li>
+     </article:list>
+</ul>
+<include file="Public/footer"/>
+<script src="http://webmonkey.d17.cc/js/layer/layer_mobile/layer.js"></script>
+<script>
+$(function(){				
+	var page = 1;//当前页
+	var allPage = "{$page}";//总页数
+	var category = "{$cid}";//分类id
+	var catSr = 0;
+	$(window).scroll(function(){
+	　　var scrollTop = $(this).scrollTop();
+	　　var scrollHeight = $(document).height();
+	　　var windowHeight = $(this).height();
+	　　if(scrollTop + windowHeight == scrollHeight ){
+			if(page<=allPage){
+				layer.open({
+					type: 2
+					,content: '加载中',
+					time:1
+				  });
+				$.ajax({
+				 type : 'POST',
+				 url : "{:U('Article/doconsult')}",
+				 data : {page:page,category:category},
+				 dataType : 'json',
+				 success : function(data){
+						if(data.success == 1){
+							page++;
+							//console.log(data.list);
+							
+							sqlJson=data.list;
+							
+							var html="";
+				
+							for(var i=0;i<sqlJson.length;i++){
+								html +="<li>"+"<a href='"+sqlJson[i].url+"'>"+"<div class='img'>"+
+										"<img src='"+sqlJson[i].src+"' alt=''>"+
+									"</div>"+
+									"<div class='info'>"+"<span class='name'>"+sqlJson[i].title+"</span>"+"</div>"+
+								"</a>"+
+							"</li>"
+							}	
+							$(".pro-list").append(html);
+	
+						}
+					}
+				});
+			}else if(catSr==0){
+				$(".pro-list").append($("#sorryNotext"));
+				$("#sorryNotext").show();
+				//$("#sorryNotext").show();
+				catSr++;
+			};
+		    
+	　　}
+		
+	});
+})
+</script>
+</body>
+</html>

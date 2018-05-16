@@ -1,0 +1,26 @@
+<include file="Public/header"/>
+
+<div class="module_inpagetit mrt30">
+    <span class="eng">MEDICAL TEAM</span>
+    <div class="name">医疗<span></span>团队</div>
+    <i class="line"></i>
+</div>
+<article:list name="vo" category="$cid" row="$category['list_row']">
+<div class="person clr">
+    <div class="person-pic" >
+    	<img src="{$vo.cover_id|get_cover='path'}" />
+    </div>
+    <ul class="person-info">
+    <?php $info=D('Document')->detail($vo['id']);?>
+        <li class="clr"><span class="one">姓名：</span><span class="two">{$info['title']}</span></li>
+        <li class="clr"><span class="one">职位：</span><span class="two">{$info['job']}</span></li>
+        <li class="clr"><span class="one">工作经验：</span><span class="two">{$info['exptime']}</span></li>
+        <li class="clr"><span class="one">毕业院校：</span><span class="two">{$info['school']}</span></li>
+        <li class="clr"><span class="one">自我评价：</span><span class="two">{$info['content']}</span></li>
+    </ul>
+</div>
+ </article:list>
+<include file="Public/footer"/>
+</body>
+</html>
+

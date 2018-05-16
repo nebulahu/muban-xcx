@@ -1,0 +1,59 @@
+<include file="Public/header"/>
+	<div class="about_us">
+		<div class="inner-title-style">
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<div class="clr">
+				<div class="innteit_top clr">
+					<i class="icon_ins"></i>
+                    <if condition="$category['id'] eq 55">
+					<div class="innte">卫宠美容</div>
+                    <else />
+                    <div class="innte">卫宠公益</div>
+                    </if>
+				</div>
+
+				<div class="innnav_right">
+					当前位置：<a href="\">首页</a> | <a href="{:U('Article/lists?category='.$category['id'])}">{$category['title']}</a> | {$info['title']}
+				</div>
+			</div>
+			<div class="line_text clr">
+				<div class="innline"></div>
+				<div class="inntext">Medical team</div>
+				<div class="innline"></div>
+				<div class="innline2"></div>
+			</div>
+		</div>
+		
+		<div class="cosmetology_de">
+			<div class="title">{$info['title']}</div>
+			<div class="info">
+				　　更新时间:{$info['create_time']|date='Y-m-d H:i',###}
+			</div>
+			<div class="line"></div>
+			<div class="productdetail_keditor">
+				{$info['content']}
+			</div>
+			<div class="back_re">
+				<article:prev name="prev" info="info" >
+                <a href="{:U('?id='.$prev['id'])}" class="link_left a_hidden">上一篇：{$prev['title']}</a>
+                </article:prev>	
+                 <article:next name="next" info="info">
+                <a href="{:U('?id='.$next['id'])}" class="link_right a_hidden">下一篇：{$next['title']}</a>
+                </article:next>
+			</div>
+		</div>
+		
+		
+	</div>
+<include file="Public/footer"/>
+<if condition="$category['id'] eq 55">
+<script>
+weichong.moduleAll(3);
+</script>
+<else />
+<script>
+weichong.moduleAll(5);
+</script>
+</if>
+
+</html>

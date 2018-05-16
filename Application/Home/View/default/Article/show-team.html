@@ -1,0 +1,97 @@
+<include file="Public/header"/>
+	<div class="about_us">
+		<div class="inner-title-style">
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<div class="clr">
+				<div class="innteit_top clr">
+					<i class="icon_ins"></i>
+					<div class="innte">医疗团队</div>
+				</div>
+
+				<div class="innnav_right">
+					当前位置：<a href="\">首页</a> | 我的团队 | {$info['title']}
+				</div>
+			</div>
+			<div class="line_text clr">
+				<div class="innline"></div>
+				<div class="inntext">Medical team</div>
+				<div class="innline"></div>
+				<div class="innline2"></div>
+			</div>
+		</div>
+		
+		<div class="we_team_details">
+			<div class="team_details_main">
+				<div class="left_pics">
+					<img src="{$info['cover_id']|get_cover='path'}" alt="{$info['title']}" class="pic" />
+				</div>
+				<div class="right_text">
+					<div class="lis clr">
+						<div class="left_te">姓名：</div>
+						<div class="right_te a_hidden">{$info['title']}</div>
+					</div>
+					<div class="lis clr">
+						<div class="left_te">职位：</div>
+						<div class="right_te a_hidden">{$info['job']}</div>
+					</div>
+					<div class="lis clr">
+						<div class="left_te">工作经验：</div>
+						<div class="right_te a_hidden">{$info['exptime']}</div>
+					</div>
+					<div class="lis clr">
+						<div class="left_te">毕业院校：</div>
+						<div class="right_te a_hidden">{$info['school']}</div>
+					</div>
+					<div class="lis clr">
+						<div class="left_te">自我评价：</div>
+						<div class="right_te right_te1" style="overflow:visible;">{$info['content']}</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="team_details_title">
+			<div class="main">
+				<div class="picScroll-left">
+					<div class="hd">
+						<a class="next"></a>
+						<a class="prev"></a>
+					</div>
+					<div class="bd">
+						<ul class="picList" >
+                        	<article:list name="vo" category="$category['id']" row="100">
+							<li>
+								<div class="pic ">
+                                	<a href="{:U('Article/detail','id='.$vo['id'])}">
+									<img src="{$vo.cover_id|get_cover='path'}" class="active" />
+                                    </a>
+								</div>
+							</li>
+                            </article:list>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<include file="Public/footer"/>
+<script>
+weichong.moduleAll(6);
+
+$(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",vis:4});
+
+$(function(){
+	$(".we_team_details").find(".team_details_main").eq(0).show();
+
+	$(".team_details_title .picList li").click(function(){
+		var i = $(".team_details_title .picList li").index($(this));
+		$(".team_details_title .picList li").find("img").removeClass('active');
+		$(".team_details_title .picList li").eq(i).find("img").addClass('active');
+		$('.we_team_details .team_details_main').eq(i).show().siblings().hide();
+	})
+
+})
+</script>
+</html>

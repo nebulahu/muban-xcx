@@ -1,0 +1,43 @@
+<include file="Public/header"/>
+	<div class="about_us">
+		<div class="inner-title-style">
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<div class="clr">
+				<div class="innteit_top clr">
+					<i class="icon_ins"></i>
+					<div class="innte">医疗团队</div>
+				</div>
+
+				<div class="innnav_right">
+					当前位置：<a href="/">首页</a> | 我的团队
+				</div>
+			</div>
+			<div class="line_text clr">
+				<div class="innline"></div>
+				<div class="inntext">Medical team</div>
+				<div class="innline"></div>
+				<div class="innline2"></div>
+			</div>
+		</div>
+
+		<div class="we_team clr">
+        	<article:list name="vo" category="$cid" row="$category['list_row']">
+			<a href="{:U('Article/detail','id='.$vo['id'])}" class="link" target="_blank">
+				<img src="{$vo.cover_id|get_cover='path'}" alt="" class="pics" />
+				<div class="text_name">{$vo.title}</div>
+				<div class="text_word">{$vo.engname}</div>
+			</a>
+            </article:list>
+			
+		</div>
+
+		<div class="own_flip">
+			<article:page cate="$cid" listrow="$category['list_row']"/>
+            </article:page>
+		</div>
+	</div>
+<include file="Public/footer"/>
+<script>
+weichong.moduleAll(6);
+</script>
+</html>

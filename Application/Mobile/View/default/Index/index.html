@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <script type="text/javascript" src="mobile/js/src/jquery.js"></script>
+    <script type="text/javascript" src="mobile/js/src/toucher.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="mobile/css/dist/weichong.mobile.min.css">
+</head>
+<body>
+<header class="module_header">
+	<a href="" class="backbtn"></a>
+	首页
+	<i class="listbtn"></i>
+</header>
+<div class="filltop"></div>
+<div class="indexbg">
+	<ul class="listpage clr">
+		<li><a href=""><i class="icon icon1"></i><span>关于我们</span></a></li>
+		<li><a href=""><i class="icon icon2"></i><span>卫宠服务</span></a></li>
+		<li><a href=""><i class="icon icon3"></i><span>卫宠用品</span></a></li>
+		<li><a href=""><i class="icon icon4"></i><span>医疗团队</span></a></li>
+	</ul>
+</div>
+<!--
+@name: 底部模块
+@description: 整站 - 底部模块
+@author: ym
+-->
+<div class="fillbot"></div>
+<footer class="module_footer">
+    	<a href=""><i class="icon icon1"></i><span>首页</span></a>
+    	<a href=""><i class="icon icon2"></i><span>电话</span></a>
+    	<a href=""><i class="icon icon3"></i><span>地址</span></a>
+    	<a href=""><i class="icon icon4"></i><span>留言</span></a>
+</footer>
+  <ul class="layout">
+    <li class="home"><a href="">首页</a></li>
+    <li class="story"><a href="">卫宠服务</a></li>
+    <li class="pro"><a href="">卫宠用品</a></li>
+    <li class="new"><a href="">医疗团队</a></li>
+  </ul>
+  <div class="mask"></div>
+<script>
+	$(function(){
+  mTouch('.listbtn').on('tap', function (e) {
+      $(".layout").animate({left:"0"});
+      $(".mask").animate({left:"0"}); 
+  });
+  mTouch('.mask').on('tap', function (e) {
+      $(this).animate({left:"100%"});
+      $(".layout").animate({left:"-100%"});
+  })
+});
+</script>
+</body>
+</html>

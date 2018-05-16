@@ -1,0 +1,55 @@
+<include file="Public/header"/>
+	<div class="about_us">
+		<div class="inner-title-style">
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<div class="clr">
+				<div class="innteit_top clr">
+					<i class="icon_ins"></i>
+					<div class="innte">联系我们</div>
+				</div>
+
+				<div class="innnav_right">
+					当前位置：<a href="\">首页</a> | 医疗团队
+				</div>
+			</div>
+			<div class="line_text clr">
+				<div class="innline"></div>
+				<div class="inntext">Contact us</div>
+				<div class="innline"></div>
+				<div class="innline2"></div>
+			</div>
+		</div>
+
+		<ul class="call_us clr">
+			<li>
+				<div class="icon icon1"></div>
+				<div class="text0">联系电话</div>
+				<div class="text1">{:C('CONTACT_PHONE')}</div>
+			</li>
+			<li>
+				<div class="icon icon2"></div>
+				<div class="text0">微信号</div>
+				<div class="text1">{:C('COMPANY_CONSULTING')}</div>
+			</li>
+			<li>
+				<div class="icon icon3"></div>
+				<div class="text0">邮箱</div>
+				<div class="text1">{:C('COMPANY_EMAIL')}</div>
+			</li>
+			<li>
+				<div class="icon icon4"></div>
+				<div class="text0">联系地址</div>
+				<div class="text1"><div>{:C('COMPANY_ADDRESS')}</div></div>
+			</li>
+		</ul>
+	
+		<div class="call_us_map_div">
+			{:hook('Map')}
+		</div>
+		
+	</div>
+<include file="Public/footer"/>
+<script>
+weichong.moduleAll(7);
+</script>
+</html>

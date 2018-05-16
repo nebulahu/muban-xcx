@@ -1,0 +1,56 @@
+<include file="Public/header"/>
+	<div class="about_us">
+		<div class="inner-title-style">
+			<img src="__IMG__/bage1.png" alt="" class="bage" />
+			<div class="clr">
+				<div class="innteit_top clr">
+					<i class="icon_ins"></i>
+					<div class="innte">卫宠公益</div>
+				</div>
+
+				<div class="innnav_right">
+					当前位置：<a href="\">首页</a> | 卫宠公益
+				</div>
+			</div>
+			<div class="line_text clr">
+				<div class="innline"></div>
+				<div class="inntext">public welfare</div>
+				<div class="innline"></div>
+				<div class="innline2"></div>
+			</div>
+		</div>
+		
+		<div class="news_list">
+			<div class="main">
+				<ul class="cons">
+                	<article:list name="vo" category="$cid" row="$category['list_row']">
+					<li>
+						<a href="{:U('Article/detail','id='.$vo['id'])}" class="link_left_pics">
+							<img src="{$vo.cover_id|get_cover='path'}" alt="{$vo.title}" class="pics">
+						</a>
+						<div class="text_right">
+							<div class="lis1">
+								<a href="{:U('Article/detail','id='.$vo['id'])}" class="tit a_hidden">{$vo.title}</a>
+								<div class="time">{$vo.create_time|date='Y-m-d',###}</div>
+							</div>
+							<div class="lis2">　{$vo.description|msubstr=0,100}</div>
+							<a href="{:U('Article/detail','id='.$vo['id'])}" class="lis3_link">点击阅读</a>
+						</div>
+					</li>
+                    </article:list>
+					
+				</ul>
+				<div class="own_flip">
+					<article:page cate="$cid" listrow="$category['list_row']"/>
+					</article:page>
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+<include file="Public/footer"/>
+<script>
+weichong.moduleAll(5);
+</script>
+</html>

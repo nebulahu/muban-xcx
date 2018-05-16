@@ -1,0 +1,105 @@
+<include file="Public/header"/>
+<div class="imgwrap">
+    <img src="__IMG__/aboutus.jpg" alt="">
+</div>
+<div class="module_inpagetit">
+    <span class="eng">CONTACT US</span>
+    <div class="name">联系<span></span>我们</div>
+    <i class="line"></i>
+</div>
+<div class="contact">
+    <table class="contact-le">
+        
+        <tr>
+            <td><span class="tip">微信</span></td>
+            <td><span class="info">{:C('COMPANY_CONSULTING')}</span></td>
+        </tr>
+        <tr>
+            <td><span class="tip">电话</span></td>
+            <td><span class="info">{:C('CONTACT_PHONE')}</span></td>
+        </tr>
+        <tr>
+            <td><span class="tip">邮箱</span></td>
+            <td><span class="info">{:C('COMPANY_EMAIL')}</span></td>
+        </tr>
+        <tr>
+            <td><span class="tip ano">地址</span></td>
+            <td><span class="info l40">{:C('COMPANY_ADDRESS')}</span></td>
+        </tr>
+
+    </table>
+</div>
+    <div class="weixin">
+    <?php $wei = C('COMPANY_IMGCODE');?>
+					<img src="{$wei|get_cover='path'}" alt=""  />
+
+        <span>扫一扫</span>
+    </div>
+<include file="Article/comment"/>
+<include file="Public/footer"/>
+<script type="text/javascript" src="http://webmonkey.d17.cc/js/jquery/vaildform/vaildform.js"></script>
+<script type="text/javascript" src="http://webmonkey.d17.cc/js/layer/layer_mobile/layer.js"></script>
+<script>
+	$(function(){
+		var default2 = {
+			/*
+			* 表单提交
+			*/
+			formSub : function(){
+				var formvalid = $('#objForm').Validform({
+					btnSubmit:"#submitBtn",
+					beforeSubmit : function(curform) {
+						default2.submitForm();
+						
+						return false;
+					 }
+				});
+				formvalid.addRule([
+					{
+						ele:"#username",
+						datatype:/^[\u4E00-\u9FA5\uf900-\ufa2d]{2,6}$/,
+						nullmsg:"请输入中文姓名！",
+						errormsg:"请正确输入中文姓名!"
+					},
+					{
+						ele:"#phone",
+						datatype:/^(0|86|17951)?(13[0-9]|15[012356789]|17[01678]|18[0-9]|14[57])[0-9]{8}$/,
+						nullmsg:"请输入电话号码！",
+						errormsg:"请正确填写手机号格式、如：13511111111"
+					},
+					{
+						ele:"#address",
+						datatype:"*1-50",
+						nullmsg:"请输入地址！",
+						nullmsg:"请正确输入地址，不超过50字！"
+					},
+					{
+						ele:"#remarks",
+						datatype:"*1-200",
+						nullmsg:"请输入留言内容！",
+						nullmsg:"请正确输入留言内容，不超过200字！"
+					}
+				]);
+			},
+			submitForm : function(){
+				$.ajax({
+					type : 'POST',
+					url : $('#objForm').attr('action'),
+					data : $('#objForm').serialize(),
+					dataType : 'json',
+					success : function(data){
+						if(data.status){
+							alert(data.message);
+							location.reload();
+						}else{
+							alert(data.message);
+						}
+					}
+				});
+			}
+		}
+		default2.formSub();
+	})
+</script>
+</body>
+</html>
